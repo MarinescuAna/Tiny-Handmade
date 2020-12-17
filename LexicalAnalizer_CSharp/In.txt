@@ -1,0 +1,22 @@
+﻿char x='h';
+/*hgs
+buvgvy*/
+int sgdfys_3624t;
+x=2;
+y=x*2;
+if(m==y)
+m=n+10;
+else{
+y = y * 5 ;
+x = x + 5 ;
+}
+return 0 ;
+}
+
+write branza;
+read lapte;
+while(x>9878){
+write length(catalina);
+}
+
+
