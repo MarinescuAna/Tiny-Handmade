@@ -36,7 +36,6 @@ namespace LexicalAnalizer_CSharp
         public void AnalyzeInput()
         {
             var construct = new StringBuilder();
-            var label = string.Empty;
             var isComment = false;
             foreach (var line in contentRead)
             {
@@ -142,6 +141,9 @@ namespace LexicalAnalizer_CSharp
             {
                 Tokens.IdentifyComment(construct.ToString());
             }
+
+
+            Printer.CloseFile();
         }
 
 

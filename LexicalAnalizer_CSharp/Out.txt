@@ -1,1 +1,359 @@
-﻿
+TOKEN [
+tLexeme = 'char'
+tToken = CHAR
+]
+
+TOKEN [
+tLexeme = 'x'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '='
+tToken = ASSIGN
+]
+
+TOKEN [
+tLexeme = ''h''
+tToken = QCHAR
+tValue = 'h'
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = '/*hgs
+buvgvy*/'
+tToken = COMMENT
+]
+
+TOKEN [
+tLexeme = 'int'
+tToken = INT
+]
+
+TOKEN [
+tLexeme = 'sgdfys_3624t'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = 'x'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '='
+tToken = ASSIGN
+]
+
+TOKEN [
+tLexeme = '2'
+tToken = NUMBER
+tValue = 2
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = 'y'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '='
+tToken = ASSIGN
+]
+
+TOKEN [
+tLexeme = 'x'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '*'
+tToken = TIMES
+]
+
+TOKEN [
+tLexeme = '2'
+tToken = NUMBER
+tValue = 2
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = 'if'
+tToken = IF
+]
+
+TOKEN [
+tLexeme = '('
+tToken = LPAR
+]
+
+TOKEN [
+tLexeme = 'm'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '=='
+tToken = EQUAL
+]
+
+TOKEN [
+tLexeme = 'y'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = ')'
+tToken = RPAR
+]
+
+TOKEN [
+tLexeme = 'm'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '='
+tToken = ASSIGN
+]
+
+TOKEN [
+tLexeme = 'n'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '+'
+tToken = PLUS
+]
+
+TOKEN [
+tLexeme = '10'
+tToken = NUMBER
+tValue = 10
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = 'else'
+tToken = ELSE
+]
+
+TOKEN [
+tLexeme = '{'
+tToken = LBRACE
+]
+
+TOKEN [
+tLexeme = 'y'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '='
+tToken = ASSIGN
+]
+
+TOKEN [
+tLexeme = 'y'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '*'
+tToken = TIMES
+]
+
+TOKEN [
+tLexeme = '5'
+tToken = NUMBER
+tValue = 5
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = 'x'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '='
+tToken = ASSIGN
+]
+
+TOKEN [
+tLexeme = 'x'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '+'
+tToken = PLUS
+]
+
+TOKEN [
+tLexeme = '5'
+tToken = NUMBER
+tValue = 5
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = '}'
+tToken = RBRACE
+]
+
+TOKEN [
+tLexeme = 'return'
+tToken = RETURN
+]
+
+TOKEN [
+tLexeme = '0'
+tToken = NUMBER
+tValue = 0
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = '}'
+tToken = RBRACE
+]
+
+TOKEN [
+tLexeme = 'write'
+tToken = WRITE
+]
+
+TOKEN [
+tLexeme = 'branza'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = 'read'
+tToken = READ
+]
+
+TOKEN [
+tLexeme = 'lapte'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = 'while'
+tToken = WHILE
+]
+
+TOKEN [
+tLexeme = '('
+tToken = LPAR
+]
+
+TOKEN [
+tLexeme = 'x'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = '>'
+tToken = GREATER
+]
+
+TOKEN [
+tLexeme = '9878'
+tToken = NUMBER
+tValue = 9878
+]
+
+TOKEN [
+tLexeme = ')'
+tToken = RPAR
+]
+
+TOKEN [
+tLexeme = '{'
+tToken = LBRACE
+]
+
+TOKEN [
+tLexeme = 'write'
+tToken = WRITE
+]
+
+TOKEN [
+tLexeme = 'length'
+tToken = LENGTH
+]
+
+TOKEN [
+tLexeme = '('
+tToken = LPAR
+]
+
+TOKEN [
+tLexeme = 'catalina'
+tToken = NAME
+]
+
+TOKEN [
+tLexeme = ')'
+tToken = RPAR
+]
+
+TOKEN [
+tLexeme = ';'
+tToken = SEMICOLON
+]
+
+TOKEN [
+tLexeme = '}'
+tToken = RBRACE
+]
+
