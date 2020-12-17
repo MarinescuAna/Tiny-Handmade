@@ -7,7 +7,6 @@ namespace LexicalAnalizer_CSharp
         static void Main(string[] args)
         {
             Scanner scanner = new Scanner();
-            scanner.ReadContent();
             scanner.AnalyzeInput();
         }
     }

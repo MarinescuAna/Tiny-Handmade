@@ -10,7 +10,7 @@ namespace LexicalAnalizer_CSharp
         private List<string> contentRead = new List<string>();
         private Tokens Tokens = new Tokens();
 
-        public void ReadContent()
+        private void ReadContent()
         {
             var line = string.Empty;
             while ((line = file.ReadLine()) != null)
@@ -33,19 +33,29 @@ namespace LexicalAnalizer_CSharp
         {
             return start == Constants.StartComment;
         }
+
         public void AnalyzeInput()
-        {
+        {           
+            // read the input and add the each line of the content into contentRead
+            ReadContent();
+
             var construct = new StringBuilder();
             var isComment = false;
+
+            // analize each line to identify the symbols
             foreach (var line in contentRead)
             {
+                // skip the empty lines
                 if (string.IsNullOrEmpty(line))
                 {
                     continue;
                 }
 
+                
+                // take a line and analize the content 
                 for (var index = 0; index < line.Length; index++)
                 {
+                    //skip the spaces
                     if (string.IsNullOrWhiteSpace(line[index].ToString()))
                     {
                         continue;
