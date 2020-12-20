@@ -26,21 +26,12 @@ namespace LexicalAnalizer_CSharp
         {
             return Constants.NumbersFrom0To9.Contains(character);
         }
-        private bool IsCommentEnd(string end) {
-            return end == Constants.EndComment;
-        }
-        private bool IsCommentStart(string start)
-        {
-            return start == Constants.StartComment;
-        }
-
         public void AnalyzeInput()
-        {           
+        {
             // read the input and add the each line of the content into contentRead
             ReadContent();
 
             var construct = new StringBuilder();
-            var isComment = false;
 
             // analize each line to identify the symbols
             foreach (var line in contentRead)
@@ -51,7 +42,11 @@ namespace LexicalAnalizer_CSharp
                     continue;
                 }
 
-                
+                if (Tokens.IdentifyComment(line))
+                {
+                    continue;
+                }
+
                 // take a line and analize the content 
                 for (var index = 0; index < line.Length; index++)
                 {
@@ -61,53 +56,19 @@ namespace LexicalAnalizer_CSharp
                         continue;
                     }
 
-                    if (isComment)
+
+                    if (index<line.Length+1 && line[index]==Constants.Slash && line[index+1]==Constants.Slash)
                     {
-                        do {
-                            construct.Append(line[index++]);
-                        } while (index < line.Length && !IsCommentEnd($"{line[index - 1]}{line[index]}"));
-
-                        if(index < line.Length && IsCommentEnd($"{line[index - 1]}{line[index]}"))
-                        {
-                            construct.Append(line[index]);
-                            Tokens.IdentifyComment(construct.ToString());
-                            construct.Length = 0;
-                            isComment = false;
-                        }
-                        else
-                        {
-                            construct.Append(Constants.NewLine);
-                        }
-                        continue;
-                    }
-                    if (index<line.Length-1 && IsCommentStart($"{line[index]}{line[index+1]}"))
-                    {
-                        isComment = true;
-                        do
-                        {
-                            construct.Append(line[index++]);
-                        } while (index < line.Length && !IsCommentEnd($"{line[index - 1]}{line[index]}"));
-
-                        if (index!=line.Length && IsCommentEnd($"{line[index - 1]}{line[index]}"))
-                        {
-                            construct.Append(line[index]);
-                            Tokens.IdentifyComment(construct.ToString());
-                            construct.Length = 0;
-                            isComment = false;
-                        }
-                        else
-                        {
-                            construct.Append(Constants.NewLine);
-                        }
-
-                        continue;
+                        var splitComment = line.Split("//");
+                        Tokens.IdentifyComment(splitComment[1].Insert(0, "//"));
+                        break;
                     }
 
                     if (IsNotLetter(line[index]) && line[index] != Constants.Underscore)
                     {
                         if (line[index] == Constants.Apostrophe)
                         {
-                            index=Tokens.IdentifyQchar(line,index);
+                            index = Tokens.IdentifyQchar(line, index);
                             continue;
                         }
                         if (IsNumber(line[index]))
@@ -124,13 +85,13 @@ namespace LexicalAnalizer_CSharp
 
                         Tokens.IdentifySimbols(line[index].ToString());
                         continue;
-                        
+
                     }
                     else
                     {
-                        while ((!IsNotLetter(line[index]) || 
-                            line[index] == Constants.Underscore || 
-                            IsNumber(line[index])) && 
+                        while ((!IsNotLetter(line[index]) ||
+                            line[index] == Constants.Underscore ||
+                            IsNumber(line[index])) &&
                             index < line.Length)
                         {
                             construct.Append(line[index++]);
@@ -146,12 +107,6 @@ namespace LexicalAnalizer_CSharp
                     }
                 }
             }
-
-            if (isComment)
-            {
-                Tokens.IdentifyComment(construct.ToString());
-            }
-
 
             Printer.CloseFile();
         }

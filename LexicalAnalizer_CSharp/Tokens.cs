@@ -9,10 +9,10 @@ namespace LexicalAnalizer_CSharp
     {
         private Dictionary<string, string> tokensSymbols = new Dictionary<string, string>();
         private Dictionary<string, string> tokensStatements = new Dictionary<string, string>();
-        public  Tokens()
+        public Tokens()
         {
             tokensStatements.Add("int", "INT");
-            tokensStatements.Add("return", "RETURN"); 
+            tokensStatements.Add("return", "RETURN");
             tokensSymbols.Add("}", "RBRACE");
             tokensSymbols.Add("{", "LBRACE");
             tokensSymbols.Add(";", "SEMICOLON");
@@ -39,22 +39,22 @@ namespace LexicalAnalizer_CSharp
             tokensSymbols.Add("-", "MINUS");
             tokensStatements.Add("char", "CHAR");
         }
-        public int IdentifyNumbers(string line, int indexStart )
+        public int IdentifyNumbers(string line, int indexStart)
         {
             var number = new StringBuilder();
-            while(indexStart<line.Length && Constants.NumbersFrom0To9.Contains(line[indexStart]))
+            while (indexStart < line.Length && Constants.NumbersFrom0To9.Contains(line[indexStart]))
             {
                 number.Append(line[indexStart++]);
             }
             Printer.WriteLine(number.ToString(), Constants.Number, number.ToString());
-            return indexStart-1;
+            return indexStart - 1;
         }
         public void IdentifyEqual(string equal)
         {
             Printer.WriteLine(equal, tokensSymbols[equal], string.Empty);
         }
         public void IdentifySimbols(string key)
-        { 
+        {
             if (tokensSymbols.ContainsKey(key))
             {
                 Printer.WriteLine(key, tokensSymbols[key], string.Empty);
@@ -90,9 +90,9 @@ namespace LexicalAnalizer_CSharp
             } while (index < line.Length && line[index] != Constants.Apostrophe);
             construct.Append(line[index++]);
 
-            if (construct.ToString().StartsWith(Constants.Apostrophe) && 
-                construct.ToString().EndsWith(Constants.Apostrophe) && 
-                construct.ToString().Length==3)
+            if (construct.ToString().StartsWith(Constants.Apostrophe) &&
+                construct.ToString().EndsWith(Constants.Apostrophe) &&
+                construct.ToString().Length == 3)
             {
                 Printer.WriteLine(construct.ToString(), Constants.Qchar, construct.ToString());
             }
@@ -101,18 +101,16 @@ namespace LexicalAnalizer_CSharp
                 Printer.WriteLine(construct.ToString(), Constants.Exception, string.Empty);
             }
 
-            return index-1;
+            return index - 1;
         }
-        public void IdentifyComment(string comment)
+        public bool IdentifyComment(string comment)
         {
-            if (comment.Contains(Constants.StartComment) && comment.Contains(Constants.EndComment))
+            if (comment.StartsWith("//"))
             {
                 Printer.WriteLine(comment, Constants.Comment, string.Empty);
+                return true;
             }
-            else
-            {
-                Printer.WriteLine(comment, Constants.Exception, string.Empty);
-            }
+            return false;
         }
     }
 }
