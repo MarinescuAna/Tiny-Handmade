@@ -7,8 +7,8 @@ namespace LexicalAnalizer_CSharp
 {
     public class Tokens
     {
-        private Dictionary<string, string> tokensSymbols = new Dictionary<string, string>();
-        private Dictionary<string, string> tokensStatements = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> tokensSymbols = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> tokensStatements = new Dictionary<string, string>();
         public Tokens()
         {
             tokensStatements.Add("int", "INT");
@@ -46,25 +46,25 @@ namespace LexicalAnalizer_CSharp
             {
                 number.Append(line[indexStart++]);
             }
-            Printer.WriteLine(number.ToString(), Constants.Number, number.ToString());
+            Saver.WriteLine(number.ToString(), Constants.Number);
             return indexStart - 1;
         }
         public void IdentifyEqual(string equal)
         {
-            Printer.WriteLine(equal, tokensSymbols[equal], string.Empty);
+            Saver.WriteLine(equal, tokensSymbols[equal]);
         }
         public void IdentifySimbols(string key)
         {
             if (tokensSymbols.ContainsKey(key))
             {
-                Printer.WriteLine(key, tokensSymbols[key], string.Empty);
+                Saver.WriteLine(key, tokensSymbols[key]);
             }
         }
         public bool TryGetValueForStatement(string key)
         {
             if (tokensStatements.ContainsKey(key))
             {
-                Printer.WriteLine(key, tokensStatements[key], string.Empty);
+                Saver.WriteLine(key, tokensStatements[key]);
                 return true;
             }
             return false;
@@ -73,11 +73,11 @@ namespace LexicalAnalizer_CSharp
         {
             if (Regex.Match(value, Constants.NamePattern).Length == value.Length)
             {
-                Printer.WriteLine(value, Constants.Name, string.Empty);
+                Saver.WriteLine(value, Constants.Name);
             }
             else
             {
-                Printer.WriteLine(value, Constants.Exception, string.Empty);
+                Saver.WriteLine(value, Constants.Exception);
             }
         }
         public int IdentifyQchar(string line, int index)
@@ -94,11 +94,11 @@ namespace LexicalAnalizer_CSharp
                 construct.ToString().EndsWith(Constants.Apostrophe) &&
                 construct.ToString().Length == 3)
             {
-                Printer.WriteLine(construct.ToString(), Constants.Qchar, construct.ToString());
+                Saver.WriteLine(construct.ToString(), Constants.Qchar);
             }
             else
             {
-                Printer.WriteLine(construct.ToString(), Constants.Exception, string.Empty);
+                Saver.WriteLine(construct.ToString(), Constants.Exception);
             }
 
             return index - 1;
@@ -107,7 +107,6 @@ namespace LexicalAnalizer_CSharp
         {
             if (comment.StartsWith("//"))
             {
-                Printer.WriteLine(comment, Constants.Comment, string.Empty);
                 return true;
             }
             return false;

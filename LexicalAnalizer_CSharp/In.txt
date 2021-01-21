@@ -1,22 +1,28 @@
-﻿char x='h';
-/*hgs
-buvgvy*/
-int sgdfys_3624t;
-x=2;
-y=x*2;
-if(m==y)
-m=n+10;
+﻿int global;
+
+int main(){
+char a;
+int r;
+int[2] result;
+
+a='3';
+r=0;
+
+while(r<9){
+r=r+1;
+}
+result[1] = r+a;
+write r+a;
+return 0;
+}
+
+char main3(int a, int b, int c){
+if(a==b){
+a=c;}
 else{
-y = y * 5 ;
-x = x + 5 ;
-}
-return 0 ;
+a=b;
 }
 
-write branza;
-read lapte;
-while(x>9878){
-write length(catalina);
+return a+b+c;
+
 }
-
-

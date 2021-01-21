@@ -6,8 +6,12 @@ namespace LexicalAnalizer_CSharp
     {
         static void Main(string[] args)
         {
-            Scanner scanner = new Scanner();
-            scanner.AnalyzeInput();
+            Parser parser = new Parser();
+            parser.program();
+
+            //foreach(var stri in Saver.program){
+            //    Console.WriteLine(stri.token + " -> " + stri.tokenName.ToString());
+            //}
         }
     }
 }

@@ -6,9 +6,9 @@ namespace LexicalAnalizer_CSharp
 {
     public class Scanner
     {
-        private System.IO.StreamReader file = new System.IO.StreamReader(Constants.InputFilePath);
-        private List<string> contentRead = new List<string>();
-        private Tokens Tokens = new Tokens();
+        private readonly System.IO.StreamReader file = new System.IO.StreamReader(Constants.InputFilePath);
+        private readonly List<string> contentRead = new List<string>();
+        private readonly Tokens Tokens = new Tokens();
 
         private void ReadContent()
         {
@@ -108,10 +108,6 @@ namespace LexicalAnalizer_CSharp
                 }
             }
 
-            Printer.CloseFile();
         }
-
-
-
     }
 }
